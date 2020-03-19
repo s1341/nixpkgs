@@ -1,5 +1,6 @@
 { stdenv
 , fetchgit
+, fetchpatch
 , autoreconfHook
 , dbus-glib
 , glib
@@ -52,7 +53,14 @@ stdenv.mkDerivation rec {
     "libsystemd.patch"
     "0001-gs-lock-plug-Disconnect-signal-handler-from-right-ob.patch"
     "33_budgie_support.patch"
-  ] ++ [ ./fix-dbus-service-dir.patch ];
+  ] ++ [
+    ./fix-dbus-service-dir.patch
+    (fetchpatch {
+      # Fix with newer gnome-desktop
+      url = "https://gitlab.gnome.org/muktupavels/gnome-screensaver/-/commit/2ada6fca4a3ffa6e4b7d70f057d364e7ce54460c.patch";
+      sha256 = "1m74qv1shq09g7m3rzmzz4ia41hg58y7s94zb6gxv53fqz2xw7rv";
+    })
+  ];
 
   nativeBuildInputs = [
     autoreconfHook
@@ -88,7 +96,7 @@ stdenv.mkDerivation rec {
 
   meta = with stdenv.lib; {
     description = "Component of Gnome Flashback that provides screen locking";
-    homepage = https://wiki.gnome.org/Projects/GnomeScreensaver;
+    homepage = "https://gitlab.gnome.org/Archive/gnome-screensaver";
     license = licenses.gpl2Plus;
     maintainers = gnome3.maintainers;
     platforms = platforms.linux;
