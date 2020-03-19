@@ -22,7 +22,7 @@ stdenv.mkDerivation rec {
     glib gettext
   ];
 
-  makeFlags = [ "INSTALL_BASE=${placeholder "out"}/share/gnome-shell/extensions" ];
+  makeFlags = [ "INSTALLBASE=${placeholder "out"}/share/gnome-shell/extensions" ];
 
   meta = with stdenv.lib; {
     description = "Gnome shell extension designed to replace the standard menu found in Gnome 3";
