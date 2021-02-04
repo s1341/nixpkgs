@@ -1592,6 +1592,8 @@ in
 
   blockhash = callPackage ../tools/graphics/blockhash { };
 
+  blueprint = callPackage ../development/tools/blueprint { };
+
   bluemix-cli = callPackage ../tools/admin/bluemix-cli { };
 
   blur-effect = callPackage ../tools/graphics/blur-effect { };
@@ -2697,6 +2699,8 @@ in
   snippetpixie = callPackage ../tools/text/snippetpixie { };
 
   socklog = callPackage ../tools/system/socklog { };
+
+  soong = callPackage ../development/tools/soong { };
 
   spacevim = callPackage ../applications/editors/spacevim { };
 
@@ -10335,6 +10339,8 @@ in
       llvmPackages_7
     else if isFreeBSD then
       llvmPackages_7
+    else if isAndroid then
+      llvmPackages_10
     else if isLinux then
       llvmPackages_7
     else if isWasm then
@@ -13029,9 +13035,11 @@ in
 
   bicgl = callPackage ../development/libraries/science/biology/bicgl { };
 
-  # TODO(@Ericson2314): Build bionic libc from source
-  bionic = assert stdenv.hostPlatform.useAndroidPrebuilt;
-    pkgs."androidndkPkgs_${stdenv.hostPlatform.ndkVer}".libraries;
+  bionic = callPackage ../os-specific/android/bionic { };
+
+  bionicCross = bionic.override {
+    stdenv = crossLibcStdenv;
+  };
 
   bobcat = callPackage ../development/libraries/bobcat { };
 
@@ -13690,12 +13698,13 @@ in
     stdenv = crossLibcStdenv;
   };
 
+
   # We can choose:
   libcCrossChooser = name:
     # libc is hackily often used from the previous stage. This `or`
     # hack fixes the hack, *sigh*.
     /**/ if name == "glibc" then targetPackages.glibcCross or glibcCross
-    else if name == "bionic" then targetPackages.bionic or bionic
+    else if name == "bionic" then targetPackages.bionicCross or bionicCross
     else if name == "uclibc" then targetPackages.uclibcCross or uclibcCross
     else if name == "avrlibc" then targetPackages.avrlibcCross or avrlibcCross
     else if name == "newlib" && stdenv.targetPlatform.isMsp430 then targetPackages.msp430NewlibCross or msp430NewlibCross

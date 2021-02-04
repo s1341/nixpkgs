@@ -1,0 +1,100 @@
+--- 0/build/soong/Android.bp	2021-02-04 21:46:00.015747732 +0200
++++ Android.bp	2021-02-04 21:47:37.716124764 +0200
+@@ -156,50 +156,50 @@
+     },
+ }
+ 
+-kernel_headers {
+-    name: "device_kernel_headers",
+-    vendor: true,
+-    recovery_available: true,
+-}
+-
+-cc_genrule {
+-    name: "host_bionic_linker_asm",
+-    host_supported: true,
+-    device_supported: false,
+-    target: {
+-        linux_bionic: {
+-            enabled: true,
+-        },
+-        linux_glibc: {
+-            enabled: false,
+-        },
+-        darwin: {
+-            enabled: false,
+-        },
+-    },
+-    tools: ["extract_linker"],
+-    cmd: "$(location) -s $(out) $(in)",
+-    srcs: [":linker"],
+-    out: ["linker.s"],
+-}
+-
+-cc_genrule {
+-    name: "host_bionic_linker_flags",
+-    host_supported: true,
+-    device_supported: false,
+-    target: {
+-        linux_bionic: {
+-            enabled: true,
+-        },
+-        linux_glibc: {
+-            enabled: false,
+-        },
+-        darwin: {
+-            enabled: false,
+-        },
+-    },
+-    tools: ["extract_linker"],
+-    cmd: "$(location) -f $(out) $(in)",
+-    srcs: [":linker"],
+-    out: ["linker.flags"],
+-}
++// kernel_headers {
++//     name: "device_kernel_headers",
++//     vendor: true,
++//     recovery_available: true,
++// }
++// 
++// cc_genrule {
++//     name: "host_bionic_linker_asm",
++//     host_supported: true,
++//     device_supported: false,
++//     target: {
++//         linux_bionic: {
++//             enabled: true,
++//         },
++//         linux_glibc: {
++//             enabled: false,
++//         },
++//         darwin: {
++//             enabled: false,
++//         },
++//     },
++//     tools: ["extract_linker"],
++//     cmd: "$(location) -s $(out) $(in)",
++//     srcs: [":linker"],
++//     out: ["linker.s"],
++// }
++// 
++// cc_genrule {
++//     name: "host_bionic_linker_flags",
++//     host_supported: true,
++//     device_supported: false,
++//     target: {
++//         linux_bionic: {
++//             enabled: true,
++//         },
++//         linux_glibc: {
++//             enabled: false,
++//         },
++//         darwin: {
++//             enabled: false,
++//         },
++//     },
++//     tools: ["extract_linker"],
++//     cmd: "$(location) -f $(out) $(in)",
++//     srcs: [":linker"],
++//     out: ["linker.flags"],
++// }

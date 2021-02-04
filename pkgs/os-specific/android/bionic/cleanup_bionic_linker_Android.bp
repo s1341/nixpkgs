@@ -1,0 +1,132 @@
+--- tmp/bionic/linker/Android.bp	2021-02-04 19:28:30.517094761 +0200
++++ Android.bp	2021-02-04 19:41:17.826873281 +0200
+@@ -422,66 +422,66 @@
+     ],
+ }
+ 
+-cc_test {
+-    name: "linker-unit-tests",
+-
+-    cflags: [
+-        "-g",
+-        "-Wall",
+-        "-Wextra",
+-        "-Wunused",
+-        "-Werror",
+-    ],
+-
+-    // We need to access Bionic private headers in the linker.
+-    include_dirs: ["bionic/libc"],
+-
+-    srcs: [
+-        // Tests.
+-        "linker_block_allocator_test.cpp",
+-        "linker_config_test.cpp",
+-        "linked_list_test.cpp",
+-        "linker_sleb128_test.cpp",
+-        "linker_utils_test.cpp",
+-        "linker_gnu_hash_test.cpp",
+-
+-        // Parts of the linker that we're testing.
+-        "linker_block_allocator.cpp",
+-        "linker_config.cpp",
+-        "linker_debug.cpp",
+-        "linker_test_globals.cpp",
+-        "linker_utils.cpp",
+-    ],
+-
+-    static_libs: [
+-        "libasync_safe",
+-        "libbase",
+-        "liblog",
+-    ],
+-
+-    arch: {
+-        arm: {
+-            srcs: ["arch/arm_neon/linker_gnu_hash_neon.cpp"],
+-        },
+-        arm64: {
+-            srcs: ["arch/arm_neon/linker_gnu_hash_neon.cpp"],
+-        },
+-    },
+-}
+-
+-cc_benchmark {
+-    name: "linker-benchmarks",
+-
+-    srcs: [
+-        "linker_gnu_hash_benchmark.cpp",
+-    ],
+-
+-    arch: {
+-        arm: {
+-            srcs: ["arch/arm_neon/linker_gnu_hash_neon.cpp"],
+-        },
+-        arm64: {
+-            srcs: ["arch/arm_neon/linker_gnu_hash_neon.cpp"],
+-        },
+-    },
+-}
++// cc_test {
++//     name: "linker-unit-tests",
++// 
++//     cflags: [
++//         "-g",
++//         "-Wall",
++//         "-Wextra",
++//         "-Wunused",
++//         "-Werror",
++//     ],
++// 
++//     // We need to access Bionic private headers in the linker.
++//     include_dirs: ["bionic/libc"],
++// 
++//     srcs: [
++//         // Tests.
++//         "linker_block_allocator_test.cpp",
++//         "linker_config_test.cpp",
++//         "linked_list_test.cpp",
++//         "linker_sleb128_test.cpp",
++//         "linker_utils_test.cpp",
++//         "linker_gnu_hash_test.cpp",
++// 
++//         // Parts of the linker that we're testing.
++//         "linker_block_allocator.cpp",
++//         "linker_config.cpp",
++//         "linker_debug.cpp",
++//         "linker_test_globals.cpp",
++//         "linker_utils.cpp",
++//     ],
++// 
++//     static_libs: [
++//         "libasync_safe",
++//         "libbase",
++//         "liblog",
++//     ],
++// 
++//     arch: {
++//         arm: {
++//             srcs: ["arch/arm_neon/linker_gnu_hash_neon.cpp"],
++//         },
++//         arm64: {
++//             srcs: ["arch/arm_neon/linker_gnu_hash_neon.cpp"],
++//         },
++//     },
++// }
++// 
++// cc_benchmark {
++//     name: "linker-benchmarks",
++// 
++//     srcs: [
++//         "linker_gnu_hash_benchmark.cpp",
++//     ],
++// 
++//     arch: {
++//         arm: {
++//             srcs: ["arch/arm_neon/linker_gnu_hash_neon.cpp"],
++//         },
++//         arm64: {
++//             srcs: ["arch/arm_neon/linker_gnu_hash_neon.cpp"],
++//         },
++//     },
++// }

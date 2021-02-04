@@ -1,0 +1,11 @@
+--- tmp/build/soong/Android.bp	2021-02-04 15:43:54.438068172 +0200
++++ Android.bp	2021-02-04 15:42:36.875581494 +0200
+@@ -133,7 +133,7 @@
+             src: "prebuilts/gcc/linux-x86/host/x86_64-w64-mingw32-4.8/x86_64-w64-mingw32/lib/libwinpthread.a",
+         },
+     },
+-    notice: ":mingw-libwinpthread-notice",
++    //notice: ":mingw-libwinpthread-notice",
+ }
+ 
+ toolchain_library {

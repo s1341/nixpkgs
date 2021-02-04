@@ -1,0 +1,19 @@
+--- build/blueprint/bootstrap/bootstrap.go.old	2021-02-03 11:50:07.782647932 +0200
++++ build/blueprint/bootstrap/bootstrap.go	2021-02-03 11:51:02.096753220 +0200
+@@ -767,11 +767,11 @@
+ 		})
+
+ 		// Add a phony target for running all of the tests
+-		ctx.Build(pctx, blueprint.BuildParams{
+-			Rule:    blueprint.Phony,
+-			Outputs: []string{"blueprint_tests"},
+-			Inputs:  blueprintTests,
+-		})
++		// ctx.Build(pctx, blueprint.BuildParams{
++		// 	Rule:    blueprint.Phony,
++		// 	Outputs: []string{"blueprint_tests"},
++		// 	Inputs:  blueprintTests,
++		// })
+
+ 	}
+ }

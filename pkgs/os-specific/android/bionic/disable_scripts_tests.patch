@@ -1,0 +1,181 @@
+--- build/soong/scripts/Android.bp	2021-02-03 11:30:00.114928692 +0200
++++ build/soong/scripts/Android.bp	2021-02-03 12:05:28.062655914 +0200
+@@ -17,26 +17,26 @@
+     ],
+ }
+ 
+-python_test_host {
+-    name: "manifest_fixer_test",
+-    main: "manifest_fixer_test.py",
+-    srcs: [
+-        "manifest_fixer_test.py",
+-        "manifest_fixer.py",
+-    ],
+-    version: {
+-        py2: {
+-            enabled: true,
+-        },
+-        py3: {
+-            enabled: false,
+-        },
+-    },
+-    libs: [
+-        "manifest_utils",
+-    ],
+-    test_suites: ["general-tests"],
+-}
++// python_test_host {
++//     name: "manifest_fixer_test",
++//     main: "manifest_fixer_test.py",
++//     srcs: [
++//         "manifest_fixer_test.py",
++//         "manifest_fixer.py",
++//     ],
++//     version: {
++//         py2: {
++//             enabled: true,
++//         },
++//         py3: {
++//             enabled: false,
++//         },
++//     },
++//     libs: [
++//         "manifest_utils",
++//     ],
++//     test_suites: ["general-tests"],
++// }
+ 
+ python_library_host {
+     name: "manifest_utils",
+@@ -72,26 +72,26 @@
+     ],
+ }
+ 
+-python_test_host {
+-    name: "manifest_check_test",
+-    main: "manifest_check_test.py",
+-    srcs: [
+-        "manifest_check_test.py",
+-        "manifest_check.py",
+-    ],
+-    version: {
+-        py2: {
+-            enabled: true,
+-        },
+-        py3: {
+-            enabled: false,
+-        },
+-    },
+-    libs: [
+-        "manifest_utils",
+-    ],
+-    test_suites: ["general-tests"],
+-}
++// python_test_host {
++//     name: "manifest_check_test",
++//     main: "manifest_check_test.py",
++//     srcs: [
++//         "manifest_check_test.py",
++//         "manifest_check.py",
++//     ],
++//     version: {
++//         py2: {
++//             enabled: true,
++//         },
++//         py3: {
++//             enabled: false,
++//         },
++//     },
++//     libs: [
++//         "manifest_utils",
++//     ],
++//     test_suites: ["general-tests"],
++// }
+ 
+ python_binary_host {
+     name: "jsonmodify",
+@@ -109,45 +109,45 @@
+     }
+ }
+ 
+-python_binary_host {
+-    name: "test_config_fixer",
+-    main: "test_config_fixer.py",
+-    srcs: [
+-        "test_config_fixer.py",
+-    ],
+-    version: {
+-        py2: {
+-            enabled: true,
+-        },
+-        py3: {
+-            enabled: false,
+-        },
+-    },
+-    libs: [
+-        "manifest_utils",
+-    ],
+-}
+-
+-python_test_host {
+-    name: "test_config_fixer_test",
+-    main: "test_config_fixer_test.py",
+-    srcs: [
+-        "test_config_fixer_test.py",
+-        "test_config_fixer.py",
+-    ],
+-    version: {
+-        py2: {
+-            enabled: true,
+-        },
+-        py3: {
+-            enabled: false,
+-        },
+-    },
+-    libs: [
+-        "manifest_utils",
+-    ],
+-    test_suites: ["general-tests"],
+-}
++// python_binary_host {
++//     name: "test_config_fixer",
++//     main: "test_config_fixer.py",
++//     srcs: [
++//         "test_config_fixer.py",
++//     ],
++//     version: {
++//         py2: {
++//             enabled: true,
++//         },
++//         py3: {
++//             enabled: false,
++//         },
++//     },
++//     libs: [
++//         "manifest_utils",
++//     ],
++// }
++// 
++// python_test_host {
++//     name: "test_config_fixer_test",
++//     main: "test_config_fixer_test.py",
++//     srcs: [
++//         "test_config_fixer_test.py",
++//         "test_config_fixer.py",
++//     ],
++//     version: {
++//         py2: {
++//             enabled: true,
++//         },
++//         py3: {
++//             enabled: false,
++//         },
++//     },
++//     libs: [
++//         "manifest_utils",
++//     ],
++//     test_suites: ["general-tests"],
++// }
+ 
+ python_binary_host {
+     name: "lint-project-xml",

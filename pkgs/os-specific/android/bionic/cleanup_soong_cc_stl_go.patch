@@ -1,0 +1,20 @@
+--- tmp/build/soong/cc/stl.go	2021-02-04 20:23:41.170385868 +0200
++++ stl.go	2021-02-04 20:35:26.435167237 +0200
+@@ -180,7 +180,7 @@
+ 			// needed, but the linker won't include this unless it is actually
+ 			// called.
+ 			// http://b/138245375
+-			deps.StaticLibs = append(deps.StaticLibs, "libc++demangle")
++			//deps.StaticLibs = append(deps.StaticLibs, "libc++demangle")
+ 		}
+ 		if ctx.toolchain().Bionic() {
+ 			if ctx.staticBinary() {
+@@ -198,7 +198,7 @@
+ 		// TODO: Make a system STL prebuilt for the NDK.
+ 		// The system STL doesn't have a prebuilt (it uses the system's libstdc++), but it does have
+ 		// its own includes. The includes are handled in CCBase.Flags().
+-		deps.SharedLibs = append([]string{"libstdc++"}, deps.SharedLibs...)
++		//deps.SharedLibs = append([]string{"libstdc++"}, deps.SharedLibs...)
+ 	case "ndk_libc++_shared", "ndk_libc++_static":
+ 		if stl.Properties.SelectedStl == "ndk_libc++_shared" {
+ 			deps.SharedLibs = append(deps.SharedLibs, stl.Properties.SelectedStl)
