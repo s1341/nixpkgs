@@ -194,6 +194,8 @@ self: super: with self; {
 
   aiohttp-apispec = callPackage ../development/python-modules/aiohttp-apispec { };
 
+  aiohttp-cache = callPackage ../development/python-modules/aiohttp-cache { };
+
   aiohttp-cors = callPackage ../development/python-modules/aiohttp-cors { };
 
   aiohttp-jinja2 = callPackage ../development/python-modules/aiohttp-jinja2 { };
@@ -3010,6 +3012,8 @@ self: super: with self; {
   envoy-reader = callPackage ../development/python-modules/envoy-reader { };
 
   envoy-utils = callPackage ../development/python-modules/envoy-utils { };
+
+  envparse = callPackage ../development/python-modules/envparse { };
 
   enzyme = callPackage ../development/python-modules/enzyme { };
 
